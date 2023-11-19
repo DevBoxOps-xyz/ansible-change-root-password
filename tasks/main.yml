@@ -1,0 +1,16 @@
+---
+- name: Delete i attr in shadow file
+  file:
+    path: /etc/shadow
+    attr: '-i'
+
+- name: Change password root user
+  user:
+    name: "root"
+    state: present
+    password: "{{ root_password | password_hash('sha512') }}"
+
+- name: Setup i attr in shadow file
+  file:
+    path: /etc/shadow
+    attr: i

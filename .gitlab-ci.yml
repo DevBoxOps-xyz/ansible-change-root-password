@@ -1,0 +1,10 @@
+---
+stages:
+  - linter
+
+linter:
+  stage: linter
+  image:
+    name: osshelp/drone-linter
+    entrypoint: [""]
+  script: [entrypoint.sh]
